@@ -1,4 +1,4 @@
-# Nyaylok Frontend
+# Saquib Ali Portfolio
 
 Welcome to the Git Repo of my portfolio website . [portfolio](https://saquib-ali.web.app/)
 
