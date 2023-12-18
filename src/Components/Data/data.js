@@ -12,11 +12,19 @@ import {
   SiPython,
   SiPostman,
 } from "react-icons/si";
+import home from "../../utils/home.png";
+import about from "../../utils/about.png";
+import project from "../../utils/project.png";
+import blog from "../../utils/blogging.png";
+import contact from "../../utils/project.png";
+
 const navigation = [
-  { name: "home", href: "#home" },
-  { name: "skills", href: "#skills" },
-  { name: "projects", href: "#project" },
-  { name: "contact", href: "/" },
+  { name: "home", href: "/", src: home },
+  { name: "skills", href: "/about", src: about },
+  { name: "projects", href: "/projects", src: project },
+  { name: "blog", href: "/blog", src: blog },
+  // { name: "archive", href: "/archive" },
+  { name: "contact", href: "/contact", src: contact },
 ];
 const skills = [
   {

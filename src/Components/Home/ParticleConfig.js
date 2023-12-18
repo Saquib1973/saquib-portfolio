@@ -3,7 +3,7 @@ export default {
   fullScreen: false,
   background: {
     color: {
-      value: "rgb(20 ,150 ,280 , 0.5)",
+      value: "rgb(229, 229, 229)",
     },
   },
   fpsLimit: 60,
@@ -16,13 +16,13 @@ export default {
       },
     },
     color: {
-      value: ["#325358", "#C0FFEE", "#31CCEC", "#6A1A78"],
+      value: ["#ffd43b", "#d18719", "#e74c3c", "#d35400"],
     },
     shape: {
       type: ["circle", "triangle", "edge", "polygon"],
       stroke: {
         width: 2,
-        color: ["#325358", "#C0FFEE", "#31CCEC", "#6A1A78"],
+        color: ["#ff6347", "#daa520", "#ffaf40", "#ffbf00"],
       },
       polygon: {
         nb_sides: 5,
@@ -51,7 +51,7 @@ export default {
     line_linked: {
       enable: true,
       distance: 150,
-      color: "#C0FFEE",
+      color: "#bde0fe",
       opacity: 0.4,
       width: 4,
     },

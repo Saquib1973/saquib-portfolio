@@ -1,70 +1,51 @@
-import React, { useState } from "react";
+import React from "react";
 import { navigation } from "../Data/data.js";
-import { GrInfo } from "react-icons/gr";
+import { Link, useLocation } from "react-router-dom";
+
 const Navbar = () => {
-  const [toggle, setToggle] = useState(true);
+  const location = useLocation();
+  console.log(location.pathname);
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-blue-600 shadow-md shadow-blue-800">
-      <div className="max-w-full px-3 lg:px-0 lg:max-w-[80vw] flex items-center pt-6 my-4 justify-between mx-auto">
-        <div className="left text-3xl text-white">
-          <div className="image">{/* logo */}</div>
-          Saquib
-        </div>
+    <div className="fixed bottom-2 left-[0%] lg:left-[30%] rounded-md right-0 z-50 w-auto sm:max-w-[50%] lg:max-w-full lg:mr-1  mx-10 sm:mx-auto shadow-md shadow-orange/40 backdrop-blur-md border-2 border-orange">
+      <div className="max-w-full px-2 flex items-center py-2  justify-center mx-auto">
         <div
-          className={`duration-[1.4s] rounded-r-3xl ease-in-out items-center justify-end flex-col md:flex-row flex fixed  w-full ${
-            !toggle
-              ? `left-[-100%] top-0 bottom-0`
-              : `left-[-5%] top-0 bottom-0`
-          } md:bg-inherit bg-blue-400 opacity-[0.95] md:static text-3xl md:text-2xl lg:text-2xl`}
+          className={`duration-[1.4s] rounded-r-3xl ease-in-out items-center  justify-center lg:justify-start flex  gap-4 lg:gap-1 w-full md:bg-inherit bg-opacity-95 text-base md:text-lg lg:text-lg xl:text-xl  `}
         >
-          {navigation.map((items) => {
-            return (
-              <a
-                key={items.name}
-                href={items.href}
-                className="hover:uppercase hover:cursor-pointer text-white hover:text-blue-500 hover:bg-white duration-500 ease-in-out mx-1 rounded-xl py-0 md:py-2"
-              >
-                <p className="  duration-300 list-none mx-5 my-10 pb-10 md:pb-0 md:my-auto border-b-8 md:border-none border-sky-200">
-                  <span className="text-red-400">{`</>`}</span>
-                  {items.name}
-                </p>
-              </a>
-            );
-          })}
-          <div className="hover:cursor-pointer text-lg lg:right-10 right-0 top-[-30%] lg:top-2 hidden md:block absolute h-10 w-9 rounded-full mt-10 animate-bounce text-black bg-white">
-            <GrInfo className="text-4xl text-center py-1 pt-2" />
-          </div>
-          <div
-            className="block md:hidden absolute right-3 top-14 w-[2rem]"
-            onClick={() => {
-              setToggle(!toggle);
-            }}
-          >
-            <div
-              className={`flex flex-col ${
-                !toggle ? `hidden` : `block`
-              } items-center justify-around`}
+          {navigation.map((items) => (
+            <Link
+              key={items.name}
+              to={items.href}
+              className={`
+               border-b-2 group hover:cursor-pointer text-dark px-1 py-2 
+                ${
+                  location.pathname === items?.href
+                    ? "rounded-none capitalize border-darkBlue tracking-widest"
+                    : " border-transparent hover:border-orange hover:text-darkOrange tracking-tight "
+                }
+              `}
             >
-              <div className="w-[2rem] bg-white h-[5px] rotate-[50deg]  absolute"></div>
-              <div className="w-[2rem] bg-white h-[5px] rotate-[130deg] absolute"></div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="block md:hidden"
-          onClick={() => {
-            setToggle(!toggle);
-          }}
-        >
-          <div
-            className={`flex ${
-              toggle ? `hidden` : `block`
-            } flex-col h-[2rem] justify-around items-center`}
-          >
-            <div className="h-[5px] bg-white w-[2rem]"></div>
-            <div className="h-[5px] bg-white w-[2rem]"></div>
-            <div className="h-[5px] bg-white w-[2rem]"></div>
-          </div>
+              <p className="duration-300 hidden  lg:block list-none mx-1 lg:mx-5 my-10 pb-10 md:pb-0 md:my-auto border-b-8 md:border-none border-sky-200">
+                <span
+                  className={`${
+                    location.pathname === items?.href ? "" : "text-orange"
+                  }`}
+                >{`</>`}</span>
+                <span
+                  className={`${
+                    location.pathname === items?.href ? "text-orange" : ""
+                  }`}
+                >
+                  {items.name[0]}
+                </span>
+                {items.name.slice(1)}
+              </p>
+              <img
+                src={items.src}
+                alt=""
+                className="sm:h-8 sm:w-8 h-6 w-6 md:h-10 md:w-10 block lg:hidden"
+              />
+            </Link>
+          ))}
         </div>
       </div>
     </div>

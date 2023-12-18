@@ -11,7 +11,7 @@ const ParticlesComponent = () => {
   }, []);
   return (
     <Particles
-      className="sm:h-screen h-[120vh] max-w-screen"
+      className="h-screen max-w-screen"
       id="particles-component"
       init={particlesInit}
       loaded={particlesLoaded}
