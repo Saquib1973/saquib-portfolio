@@ -6,14 +6,14 @@ import { CiLink } from "react-icons/ci";
 export const projects = [
   {
     count: 0,
-    name: "project1",
+    name: "AcademiaStacks",
     desc: "glkjsjgdfkjgdf",
     url: "unkown/",
     picture: "pic1",
   },
   {
     count: 1,
-    name: "project2",
+    name: "project2aslkj",
     desc: "glkjsjgdfkjgdfdsadas",
     url: "sasunkown/",
     picture: "pic2",

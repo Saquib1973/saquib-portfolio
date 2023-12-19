@@ -9,11 +9,16 @@ const ProjectCard = ({ project }) => {
     scrollToTop();
   }, []);
   return (
-    <Link to={`/projects/${project.count}`} className="cursor-pointer">
-      <div className="flex justify-center group items-center p-2 bg-orange drop-shadow-lg  rounded-lg">
-        <div className="lg:rotate-45 h-60 w-60  lg:translate-x-20 group-hover:rotate-0 group-hover:translate-x-0 transition-all duration-700 bg-white"></div>
-        <div className="lg:-rotate-45 h-60 w-60 lg:blur-sm group-hover:blur-0 lg:-translate-x-20 group-hover:rotate-0 group-hover:translate-x-0 transition-all duration-700 bg-white">
-          <img src={img} alt="" />
+    <Link
+      to={`/projects/${project.count}`}
+      className="cursor-pointer w-full lg:w-auto lg:mx-0 mx-10 "
+    >
+      <div className="flex flex-col lg:flex-row gap-4 lg:gap-0 group justify-center group items-center p-10 bg-gradient-to-tr from-orange/60 to-clear/20 drop-shadow-lg  rounded-lg">
+        <div className="lg:group-hover:-translate-y-[50%] lg:group-hover:-rotate-90 lg:bg-clear lg:p-2 rounded-md origin-bottom text-4xl lg:group-hover:-translate-x-[50%] lg:-translate-y-24 transition-all duration-700">
+          {project.name}
+        </div>
+        <div className="lg:group-hover:-translate-y-0 flex justify-center lg:group-hover:scale-[1.1] lg:group-hover:-translate-x-[20%] lg:translate-x-[30%] lg:translate-y-[30%] transition-all duration-700">
+          <img src={img} className="w-2/3 lg:w-[20vw]" alt="" />
         </div>
       </div>
     </Link>
