@@ -30,7 +30,7 @@ const Project = () => {
   const project = projects.find((proj) => proj.count === projectNo);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center overflow-x-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center pb-20 overflow-x-hidden">
       <div className="flex overflow-hidden  group">
         <div className="flex space-x-8 py-10 animate-loop-scroll group-hover:paused">
           {projects.map((project, index) => (
@@ -60,26 +60,26 @@ const Project = () => {
       {projectNo !== -1 && (
         <div
           id="project"
-          className="justify-between w-2/3 min-h-[55vh] px-16 flex items-center my-2 p-4 rounded-xl drop-shadow-md mx-5 bg-gradient-to-br from-darkOrange via-orange to-clear"
+          className="justify-around md:justify-between w-2/3 min-h-[55vh] group px-[2vw] md:px-16 gap-4 flex flex-col md:flex-row items-center my-2 p-4 rounded-xl drop-shadow-md mx-5 bg-gradient-to-br from-darkOrange/40 via-orange/75 to-clear"
         >
-          <div className="flex justify-around flex-col gap-4 items-center">
+          <div className="flex justify-around flex-col gap-2 items-center bg-clear/40 rounded-md drop-shadow-sm p-2">
             <img
               src={img}
               alt=""
-              className="h-80 w-80 rounded-md drop-shadow-lg"
+              className="w-[50vw] md:w-80 lg:group-hover:-translate-y-1 transition-all duration-500  lg:translate-y-6 rounded-xl drop-shadow-lg"
             />
-            <div className=" flex gap-6">
+            <div className=" flex gap-2 lg:-translate-y-5 lg:group-hover:translate-y-0 z-[-1] transition-all duration-500 md:gap-6">
               <Link
                 to={""}
-                className="flex  items-center  gap-2 hover:text-clear drop-shadow-md transition-all duration-500"
+                className="flex  items-center gap-2 hover:text-clear drop-shadow-md transition-all duration-500"
               >
-                GitHub : <FaGithub className="text-4xl" />
+                <FaGithub className="text-lg md:text-4xl" />
               </Link>
               <Link
                 to={""}
                 className="flex  items-center  gap-2 hover:text-clear drop-shadow-md transition-all duration-500"
               >
-                Website : <CiLink className="text-4xl" />
+                <CiLink className="text-lg md:text-4xl" />
               </Link>
             </div>
           </div>

@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import { skills } from "../Data/data";
+import { scrollToTop } from "../../App";
 
 const About = () => {
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);

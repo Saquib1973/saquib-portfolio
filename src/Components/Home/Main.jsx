@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { links } from "./Home";
 import myPhoto from "./myPhoto.jpg";
 import { Link } from "react-router-dom";
 import { IoMdSend } from "react-icons/io";
+import { scrollToTop } from "../../App";
 
 const Main = () => {
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   const text = ["F", "R", "O", "N", "T"];
   const text2 = ["O", "E", "R"];
   return (

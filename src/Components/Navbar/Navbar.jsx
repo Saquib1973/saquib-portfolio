@@ -19,20 +19,24 @@ const Navbar = () => {
                border-b-2 group hover:cursor-pointer text-dark px-1 py-2 
                 ${
                   location.pathname === items?.href
-                    ? "rounded-none capitalize border-darkBlue tracking-widest"
-                    : " border-transparent hover:border-orange hover:text-darkOrange tracking-tight "
+                    ? "capitalize border-darkBlue tracking-wider"
+                    : "border-transparent hover:border-orange tracking-tight"
                 }
               `}
             >
-              <p className="duration-300 hidden  lg:block list-none mx-1 lg:mx-5 my-10 pb-10 md:pb-0 md:my-auto border-b-8 md:border-none border-sky-200">
+              <p className="duration-300 hidden group  lg:block list-none mx-1 lg:mx-5 my-10 pb-10 md:pb-0 md:my-auto border-b-8 md:border-none border-sky-200">
                 <span
                   className={`${
-                    location.pathname === items?.href ? "" : "text-orange"
+                    location.pathname === items?.href
+                      ? ""
+                      : "text-orange group-hover:text-dark"
                   }`}
                 >{`</>`}</span>
                 <span
                   className={`${
-                    location.pathname === items?.href ? "text-orange" : ""
+                    location.pathname === items?.href
+                      ? "text-orange"
+                      : "group-hover:text-orange"
                   }`}
                 >
                   {items.name[0]}

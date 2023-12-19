@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { projects } from "./Project";
 import img from "../../utils/twitterHomePage.png";
+import { scrollToTop } from "../../App";
 
 const ProjectCard = ({ project }) => {
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   return (
     <Link to={`/projects/${project.count}`} className="cursor-pointer">
-      <div className="flex justify-center group items-center bg-orange drop-shadow-lg  rounded-lg">
-        <div className="rotate-45 h-60 w-60  translate-x-20 group-hover:rotate-0 group-hover:translate-x-0 transition-all duration-700 bg-white"></div>
-        <div className="-rotate-45 h-60 w-60 blur-sm group-hover:blur-0 -translate-x-20 group-hover:rotate-0 group-hover:translate-x-0 transition-all duration-700 bg-white">
+      <div className="flex justify-center group items-center p-2 bg-orange drop-shadow-lg  rounded-lg">
+        <div className="lg:rotate-45 h-60 w-60  lg:translate-x-20 group-hover:rotate-0 group-hover:translate-x-0 transition-all duration-700 bg-white"></div>
+        <div className="lg:-rotate-45 h-60 w-60 lg:blur-sm group-hover:blur-0 lg:-translate-x-20 group-hover:rotate-0 group-hover:translate-x-0 transition-all duration-700 bg-white">
           <img src={img} alt="" />
         </div>
       </div>
@@ -30,8 +34,8 @@ const Projects = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="overflow-hidden py-20 flex flex-col items-center justify-center overflow-x-hidden">
-      <div className="flex min-h-[70vh] gap-40 items-center justify-center flex-wrap py-10">
+    <div className="overflow-hidden py-20 pb-24 flex flex-col items-center justify-center overflow-x-hidden">
+      <div className="flex min-h-[70vh] gap-10 lg:gap-40 items-center justify-center flex-wrap py-10">
         {currentProjects.map((project) => (
           <ProjectCard key={project.count} project={project} />
         ))}
