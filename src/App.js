@@ -1,6 +1,6 @@
 import "./App.css";
-import Navbar from "./Components/Navbar/Navbar.jsx";
-import Home from "./Components/Home/Home";
+import Navbar from "./Components/Navbar.jsx";
+import Home from "./Pages/Home/Home.jsx";
 export const scrollToTop = () => {
   window.scrollTo({
     top: 0,
