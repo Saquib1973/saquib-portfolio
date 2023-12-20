@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { projects } from "./Project";
-import img from "../../utils/twitterHomePage.png";
 import { scrollToTop } from "../../App";
 
 const ProjectCard = ({ project }) => {
@@ -11,14 +10,18 @@ const ProjectCard = ({ project }) => {
   return (
     <Link
       to={`/projects/${project.count}`}
-      className="cursor-pointer w-full lg:w-auto lg:mx-0 mx-10 "
+      className="cursor-pointer w-2/3 lg:w-auto lg:mx-0 mx-10 "
     >
-      <div className="flex flex-col lg:flex-row gap-4 lg:gap-0 group justify-center group items-center p-10 bg-gradient-to-tr from-orange/60 to-clear/20 drop-shadow-lg  rounded-lg">
-        <div className="lg:group-hover:-translate-y-[50%] lg:group-hover:-rotate-90 lg:bg-clear lg:p-2 rounded-md origin-bottom text-4xl lg:group-hover:-translate-x-[50%] lg:-translate-y-24 transition-all duration-700">
+      <div className="flex flex-col lg:flex-row gap-4 lg:gap-0 group justify-center group items-center py-10 px-4 bg-gradient-to-tr from-orange/60 to-clear/20 drop-shadow-lg  rounded-lg">
+        <div className="lg:group-hover:-translate-y-[50%] lg:group-hover:-rotate-90 lg:bg-clear lg:p-2 rounded-md origin-bottom text-xl md:text-2xl lg:text-4xl lg:group-hover:-translate-x-[50%] lg:-translate-y-24 transition-all duration-700">
           {project.name}
         </div>
-        <div className="lg:group-hover:-translate-y-0 flex justify-center lg:group-hover:scale-[1.1] lg:group-hover:-translate-x-[20%] lg:translate-x-[30%] lg:translate-y-[30%] transition-all duration-700">
-          <img src={img} className="w-2/3 lg:w-[20vw]" alt="" />
+        <div className="lg:group-hover:-translate-y-0 flex w-2/3 lg:w-[20vw] p-2 bg-gray-200/60 rounded-md  justify-center lg:group-hover:scale-[1.1] lg:group-hover:-translate-x-[20%] lg:translate-x-[30%] lg:translate-y-[30%] transition-all duration-700">
+          <img
+            src={project.picture}
+            className="w-full lg:w-[20vw] lg:group-hover:-translate-y-2 lg:group-hover:translate-x-4 lg:group-hover:scale-[1.05]  rounded-md transition-all duration-500"
+            alt=""
+          />
         </div>
       </div>
     </Link>

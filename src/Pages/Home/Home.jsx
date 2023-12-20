@@ -13,6 +13,8 @@ import Contact from "./../Contact";
 import Blog from "./../Blog";
 import About from "./../About";
 import Main from "./../Main";
+import Public from "./../../Routes/Public";
+import Private from "./../../Routes/Private";
 export const links = [
   { icon: <FaGithub />, url: "https://github.com/Saquib1973" },
   {
@@ -63,15 +65,71 @@ const Home = () => {
         </div>
         <div className="w-[100vw] lg:w-[70vw] max-h-screen overflow-scroll overflow-x-hidden">
           <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/projects" element={<Projects />} />
+            <Route
+              path="/"
+              element={
+                <Public>
+                  <Main />
+                </Public>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <Public>
+                  <About />
+                </Public>
+              }
+            />
+            <Route
+              path="/blog"
+              element={
+                <Public>
+                  <Blog />
+                </Public>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <Public>
+                  <Contact />
+                </Public>
+              }
+            />
+            <Route
+              path="/projects"
+              element={
+                <Public>
+                  <Projects />
+                </Public>
+              }
+            />
             {/* Add the following route for individual projects */}
-            <Route path="/projects/:projectId" element={<Project />} />
-            <Route path="/auth/login" element={<Auth />} />
-            <Route path="/auth/dashboard" element={<Dashboard />} />
+            <Route
+              path="/projects/:projectId"
+              element={
+                <Public>
+                  <Project />
+                </Public>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <Public>
+                  <Auth />
+                </Public>
+              }
+            />
+            <Route
+              path="/admin/dashboard"
+              element={
+                <Private>
+                  <Dashboard />
+                </Private>
+              }
+            />
             <Route path="*" element={<Error />} />
           </Routes>
         </div>
